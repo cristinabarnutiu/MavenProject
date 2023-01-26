@@ -1,9 +1,20 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class CalculatorTest {
+    //private Calculator calculator;
+
+    @BeforeAll
+    public static void beforeAllMethod(){
+        System.out.println("Before All");
+    }
+
+    @BeforeEach
+    public void beforeEachMethod(){
+        System.out.println("Before Each");
+        //calculator = new Calculator();
+    }
 
     @Test
     public void checkAddition(){
@@ -19,6 +30,16 @@ public class CalculatorTest {
         double result = calculator.multiply(1.00,22.00);
         Assertions.assertEquals(result,22.00);
 
+    }
+
+    @AfterEach
+    public void afterEachMethod(){
+        System.out.println("After Each");
+    }
+
+    @AfterAll
+    public static void afterAllMethod(){
+        System.out.println("After All");
     }
 
 
